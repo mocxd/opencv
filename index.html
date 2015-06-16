@@ -1,8 +1,11 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">    
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="default.css">
+
     </head>
     <body>
         <div class="container">
@@ -16,14 +19,116 @@
                     <p>123-123-1234</p>
                 </div>
             </center>
+
             <div class="row spacer-lg"></div>
 
-            <div class="row well">Objective</div>
-            <div class="row well">Work Experience</div>
-            <div class="row well">Skills</div>
-            <div class="row well">Education</div>
-            <div class="row well">Certification</div>
-            <div class="row well">Other</div>
+
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel0">
+                Objective
+            </button>
+
+            <div id="panel0" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your objective here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1">
+                Work Experience
+            </button>
+
+            <div id="panel1" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your work experience here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel2">
+                Skills
+            </button>
+
+            <div id="panel2" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your skills here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel3">
+                Education
+            </button>
+
+            <div id="panel3" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your education here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel4">
+                Certifications
+            </button>
+
+            <div id="panel4" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your certifications here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel5">
+                Badges
+            </button>
+
+            <div id="panel5" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your badges here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel6">
+                Other
+            </button>
+
+            <div id="panel6" class="collapse panel panel-default">
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your other info here..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row spacer"></div>
+
+            <!-- <div class="row well">Objective</div>
+<div class="row well">Work Experience</div>
+<div class="row well">Skills</div>
+<div class="row well">Education</div>
+<div class="row well">Certification</div>
+<div class="row well">Other</div> -->
+
 
         </div>
 
