@@ -1,0 +1,38 @@
+textarea {
+    resize: none;
+}
+
+.row.spacer {
+    min-height: 20px;
+}
+
+.row.spacer-lg {
+    min-height: 60px;
+}
+
+.contact {
+    line-height: 7px;
+}
+
+.btn-row {
+    text-align: left;
+    display: block;
+    width: 100%;
+    font-weight: 800;
+}
+
+.btn-bare {
+    margin: 0;
+}
+
+.btn-bare:focus {
+    outline: 0;
+}
+
+.panel-bare {
+    padding: 0;
+}
+
+.input-group-textpanel {
+    width: 100%;
+}
