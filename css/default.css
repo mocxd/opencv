@@ -36,3 +36,11 @@ textarea {
 .input-group-textpanel {
     width: 100%;
 }
+
+.center {
+    text-align: center;
+}
+
+.ui-datepicker-calendar {
+    display: none;
+}

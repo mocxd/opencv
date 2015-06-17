@@ -2,13 +2,17 @@
 <head>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
 
     <script src="bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
     <script src="bower_components/marked/marked.min.js"></script>
     <script src="bower_components/vue/dist/vue.min.js"></script>
 
     <link rel="stylesheet" href="bower_components/trumbowyg/dist/ui/trumbowyg.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/edit.css">
 
@@ -39,11 +43,11 @@
 
         <div id="panel0" class="collapse panel panel-default">
 
-<!--            <div id="editor">
+            <div id="editor">
                 <textarea v-model="input" debounce="300"></textarea>
                 <div v-html="input | marked"></div>
             </div>
--->
+
 
             <div class="input-group input-group-textpanel">
                 <div class="panel-body panel-bare">
@@ -61,10 +65,41 @@
         </button>
 
         <div id="panel1" class="collapse panel panel-default">
-            <div class="input-group input-group-textpanel">
-                <div class="panel-body panel-bare">
-                    <textarea class="form-control" rows="5" id="trumbowyg-demo0" placeholder="Type your work experience here..."></textarea>
-                    <textarea class="form-control" rows="5" id="trumbowyg-demo1" placeholder="Type your work experience here..."></textarea>
+            <div class="row">
+                <!--
+                <div class="col-md-1">
+                    <button role="button" class="btn btn-default btn-lg"><i class="fa fa-minus-circle"></i></button>
+                </div>
+            -->
+                <div class="col-md-4">
+                    <label for="work0">Employer 1: </label><input id="work0" type="text" class="form-control" placeholder="Enter employer here...">
+                </div>
+                <div class="col-md-4">
+                    <label for="pos0">Position: </label><input id="pos0" type="text" class="form-control" placeholder="Enter position here...">
+                </div>
+                <div class="col-md-2">
+                    <label for="begin0">Begin Date: </label><input id="begin0" type="text" class="form-control date-picker" placeholder="mm/yyyy">
+                </div>
+                <div class="col-md-2">
+                    <label for="end0">End Date: </label><input id="end0" type="text" class="form-control date-picker" placeholder="mm/yyyy">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="input-group input-group-textpanel">
+                    <div class="panel-body panel-bare">
+                        <textarea class="form-control" rows="5" id="trumbowyg-demo0" placeholder="Type your work experience here..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <button role="button" class="btn btn-primary btn-lg"><i class="fa fa-plus-circle"></i></button>
+                </div>
+                <div class="col-md-11">
+                    <p>Add another employer...</p>
                 </div>
             </div>
         </div>
