@@ -1,126 +1,145 @@
 <html>
-    <head>
-        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="default.css">
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-    </head>
-    <body>
-        <div class="container">
-            <center>
-                <h1>Shaban R.</h1>
-                <div class="contact">
-                    <p>Address Line 1</p>
-                    <p>Address Line 2</p>
-                    <p>City, State, Zip</p>
-                    <p>email@email.com</p>
-                    <p>123-123-1234</p>
-                </div>
-            </center>
+    <script src="bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
+    <script src="bower_components/marked/marked.min.js"></script>
+    <script src="bower_components/vue/dist/vue.min.js"></script>
 
-            <div class="row spacer-lg"></div>
+    <link rel="stylesheet" href="bower_components/trumbowyg/dist/ui/trumbowyg.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/edit.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Shaban R.</h1>
+            <div class="contact">
+                <p>Address Line 1</p>
+                <p>Address Line 2</p>
+                <p>City, State, Zip</p>
+                <p>email@email.com</p>
+                <p>123-123-1234</p>
+            </div>
+        </center>
+
+        <div class="row spacer-lg"></div>
 
 
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel0">
-                Objective
-            </button>
 
-            <div id="panel0" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your objective here..."></textarea>
-                    </div>
+
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel0">
+            Objective
+        </button>
+
+        <div id="panel0" class="collapse panel panel-default">
+
+<!--            <div id="editor">
+                <textarea v-model="input" debounce="300"></textarea>
+                <div v-html="input | marked"></div>
+            </div>
+-->
+
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5"  placeholder="Type your work experience here..."></textarea>
                 </div>
             </div>
 
-            <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1">
-                Work Experience
-            </button>
+        </div>
 
-            <div id="panel1" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your work experience here..."></textarea>
-                    </div>
+        <div class="row spacer"></div>
+
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1">
+            Work Experience
+        </button>
+
+        <div id="panel1" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="trumbowyg-demo0" placeholder="Type your work experience here..."></textarea>
+                    <textarea class="form-control" rows="5" id="trumbowyg-demo1" placeholder="Type your work experience here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel2">
-                Skills
-            </button>
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel2">
+            Skills
+        </button>
 
-            <div id="panel2" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your skills here..."></textarea>
-                    </div>
+        <div id="panel2" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Type your skills here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel3">
-                Education
-            </button>
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel3">
+            Education
+        </button>
 
-            <div id="panel3" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your education here..."></textarea>
-                    </div>
+        <div id="panel3" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Type your education here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel4">
-                Certifications
-            </button>
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel4">
+            Certifications
+        </button>
 
-            <div id="panel4" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your certifications here..."></textarea>
-                    </div>
+        <div id="panel4" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Type your certifications here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel5">
-                Badges
-            </button>
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel5">
+            Badges
+        </button>
 
-            <div id="panel5" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your badges here..."></textarea>
-                    </div>
+        <div id="panel5" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Type your badges here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
-            <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel6">
-                Other
-            </button>
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel6">
+            Other
+        </button>
 
-            <div id="panel6" class="collapse panel panel-default">
-                <div class="input-group input-group-textpanel">
-                    <div class="panel-body panel-bare">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Type your other info here..."></textarea>
-                    </div>
+        <div id="panel6" class="collapse panel panel-default">
+            <div class="input-group input-group-textpanel">
+                <div class="panel-body panel-bare">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Type your other info here..."></textarea>
                 </div>
             </div>
+        </div>
 
-            <div class="row spacer"></div>
+        <div class="row spacer"></div>
 
             <!-- <div class="row well">Objective</div>
 <div class="row well">Work Experience</div>
@@ -130,7 +149,8 @@
 <div class="row well">Other</div> -->
 
 
-        </div>
+</div>
 
-    </body>
+<script src="js/edit.js"></script>
+</body>
 </html>
