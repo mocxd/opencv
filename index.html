@@ -44,7 +44,7 @@
         <div id="panel0" class="collapse panel panel-default">
 
             <div id="editor">
-                <textarea v-model="input" debounce="300"></textarea>
+                <textarea v-model="input" debounce="50"></textarea>
                 <div v-html="input | marked"></div>
             </div>
 
