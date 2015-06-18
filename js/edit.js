@@ -9,10 +9,7 @@
 });*/
 
 
-$(function(){
-	$('#trumbowyg-demo0').trumbowyg();
-	//$('#trumbowyg-demo1').trumbowyg();
-});
+
 
 $(function() {
     $('.date-picker').datepicker( {

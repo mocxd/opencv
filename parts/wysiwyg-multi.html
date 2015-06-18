@@ -1,0 +1,48 @@
+        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1">
+            Work Experience
+        </button>
+
+        <div id="panel1" class="panel panel-default">
+            <div class="panel-body panel-bare">
+                <div class="row">
+                <!--
+                <div class="col-md-1">
+                    <button role="button" class="btn btn-default btn-lg"><i class="fa fa-minus-circle"></i></button>
+                </div>
+            -->
+            <div class="col-md-4">
+                <label for="work0">Employer 1: </label><input id="work0" type="text" class="form-control" placeholder="Enter employer here..." ng-model="employerText0">
+            </div>
+            <div class="col-md-4">
+                <label for="pos0">Position: </label><input id="pos0" type="text" class="form-control" placeholder="Enter position here..." ng-model="positionText0">
+            </div>
+            <div class="col-md-2">
+                <label for="begin0">Begin Date: </label><input id="begin0" type="text" class="form-control date-picker" placeholder="mm/yyyy" ng-model="beginDate0">
+            </div>
+            <div class="col-md-2">
+                <label for="end0">End Date: </label><input id="end0" type="text" class="form-control date-picker" placeholder="mm/yyyy" ng-model="endDate0">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <textarea class="form-control" rows="5" id="trumbowyg-demo0" placeholder="Type your work experience here..."></textarea ng-model="descriptionText0">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    <button role="button" class="btn btn-primary btn-lg"><i class="fa fa-plus-circle"></i></button>
+                </div>
+                <div class="col-md-11">
+                    <p>Add another employer...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(function(){
+        $('#trumbowyg-demo0').trumbowyg();
+    });
+    </script>
