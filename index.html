@@ -48,6 +48,7 @@
             <div class="row spacer"></div>
 
             <input type="checkbox" ng-model="edit1">Edit</input>
+            <button ng-click="saveFields()">Save</button>
             <wysiwyg-multi ng-show="edit1"></wysiwyg-multi>
             <wysiwyg-multi-readonly ng-show="!edit1"></wysiwyg-multi-readonly>
 

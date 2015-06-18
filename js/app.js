@@ -3,9 +3,12 @@
 
 angular.module('opencv', [])
 
-.controller('SectionController', function(){
-	
-})
+.controller('SectionController', ['$scope', function ($scope){
+	$scope.saveFields = function () {
+		$scope.descriptionText0 = $('#trumbowyg-demo0').val();
+		console.log ($scope.descriptionText0);
+	}
+}])
 
 .directive('wysiwyg', function() {
     return {
