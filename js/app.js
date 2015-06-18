@@ -1,13 +1,13 @@
 (function () {
     'use strict';
 
-angular.module('opencv', [])
+angular.module('opencv', ['ngSanitize'])
 
-.controller('SectionController', ['$scope', function ($scope){
+.controller('SectionController', ['$scope', '$sce', function ($scope, $sce) {
 	$scope.saveFields = function () {
-		$scope.descriptionText0 = $('#trumbowyg-demo0').val();
+		$scope.descriptionText0 = $sce.trustAsHtml($('#trumbowyg-demo0').val());
 		console.log ($scope.descriptionText0);
-	}
+	};
 }])
 
 .directive('wysiwyg', function() {
