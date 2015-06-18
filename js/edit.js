@@ -1,4 +1,4 @@
-new Vue({
+/*new Vue({
 	el: '#editor',
 	data: {
 		input: '# hello'
@@ -6,7 +6,7 @@ new Vue({
 	filters: {
 		marked: marked
 	}
-});
+});*/
 
 
 $(function(){
