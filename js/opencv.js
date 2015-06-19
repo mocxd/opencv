@@ -12,6 +12,7 @@ angular.module('opencv', ['ngSanitize'])
     };
 
     $scope.toggleState = function () {
+        $('#panel1').collapse('show');
         $scope.edit1 = !$scope.edit1;
         $scope.saveFields();
     };
