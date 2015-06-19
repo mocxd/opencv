@@ -4,10 +4,10 @@
 angular.module('opencv', ['ngSanitize'])
 
 .controller('SectionController', ['$scope', '$sce', function ($scope, $sce) {
-	$scope.saveFields = function () {
-		$scope.descriptionText0 = $sce.trustAsHtml($('#trumbowyg-demo0').val());
-		console.log ($scope.descriptionText0);
-	};
+    $scope.saveFields = function () {
+        $scope.descriptionText0 = $sce.trustAsHtml($('#trumbowyg-demo0').val());
+        console.log ($scope.descriptionText0);
+    };
 }])
 
 .directive('wysiwyg', function() {

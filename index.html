@@ -45,17 +45,32 @@
         <div ng-controller="SectionController">
 
             <input type="checkbox" ng-model="edit0">Edit</input>
-            <wysiwyg ng-if="edit0"></wysiwyg>
-            <wysiwyg-readonly ng-if="!edit0"></wysiwyg-readonly>
+            <wysiwyg ng-show="edit0"></wysiwyg>
+            <wysiwyg-readonly ng-show="!edit0"></wysiwyg-readonly>
 
             <div class="row spacer"></div>
 
             <input type="checkbox" ng-model="edit1">Edit</input>
             <button ng-click="saveFields()">Save</button>
-            <wysiwyg-multi ng-if="edit1"></wysiwyg-multi>
-            <wysiwyg-multi-readonly ng-if="!edit1"></wysiwyg-multi-readonly>
+            <wysiwyg-multi ng-show="edit1"></wysiwyg-multi>
+            <wysiwyg-multi-readonly ng-show="!edit1"></wysiwyg-multi-readonly>
+
+            <div class="row spacer"></div>
 
 
+            <div class="row spacer"></div>
+
+
+
+            <div class="row spacer"></div>
+
+
+
+            <div class="row spacer"></div>
+
+
+
+            <div class="row spacer"></div>
 
         </div>
 
@@ -69,6 +84,7 @@
 
 </div>
 
-<script type="text/javascript" src="js/opencv.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script src="js/edit.js"></script>
 </body>
 </html>
