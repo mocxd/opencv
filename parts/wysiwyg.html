@@ -1,8 +1,15 @@
-        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel0">
-            Objective
-        </button>
+        <div class="well row btn-bare btn-row">
+            <div class="header" data-toggle="collapse" data-target="#panel0">
+                Objective
+            </div>
+            <div class="right">
+                <button class="btn btn-success" ng-click="toggleStateSingle()">
+                    <span>Save</span>
+                </button>
+            </div>
+        </div>
 
-        <div id="panel0" class="panel panel-default">
+        <div id="panel0" class="panel panel-default in">
 
            <!-- <div id="editor">
                 <textarea v-model="input" debounce="0"></textarea>
