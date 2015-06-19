@@ -4,9 +4,16 @@
 angular.module('opencv', ['ngSanitize'])
 
 .controller('SectionController', ['$scope', '$sce', function ($scope, $sce) {
+    $scope.edit1 = false;
+
     $scope.saveFields = function () {
         $scope.descriptionText0 = $sce.trustAsHtml($('#trumbowyg-demo0').val());
         console.log ($scope.descriptionText0);
+    };
+
+    $scope.toggleState = function () {
+        $scope.edit1 = !$scope.edit1;
+        $scope.saveFields();
     };
 }])
 

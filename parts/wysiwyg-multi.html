@@ -1,6 +1,14 @@
-        <button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1">
-            Work Experience
-        </button>
+        <div class="well row btn-bare btn-row">
+            <div class="header" data-toggle="collapse" data-target="#panel1">
+                Work Experience
+            </div>
+            <div class="right">
+                <button ng-click="toggleState()">
+                    <span ng-show="edit1">Save</span>
+                    <span ng-show="!edit1">Edit</span>
+                </button>
+            </div>
+        </div>
 
         <div id="panel1" class="panel panel-default">
             <div class="panel-body panel-bare">
@@ -35,35 +43,48 @@
 
             <textarea class="form-control" rows="5" id="trumbowyg-demo0" placeholder="Type your work experience here..." ng-model="descriptionText0"></textarea>
 
-            </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-1">
-                    <button role="button" class="btn btn-primary btn-lg"><i class="fa fa-plus-circle"></i></button>
-                </div>
-                <div class="col-md-11">
-                    <p>Add another employer...</p>
-                </div>
+        <div class="row">
+            <div class="col-md-1">
+                <button role="button" class="btn btn-primary btn-lg"><i class="fa fa-plus-circle"></i></button>
+            </div>
+            <div class="col-md-11">
+                <p>Add another employer...</p>
             </div>
         </div>
     </div>
+</div>
 
-    <script type="text/javascript">
-    $(function(){
-        $('#trumbowyg-demo0').trumbowyg();
+<script type="text/javascript">
+$(function(){
+    $.trumbowyg.btnsGrps = {
+        design:   ['bold', 'italic', 'underline'],
+        semantic: ['strong', 'em'],
+        lists:    ['unorderedList']
+    };
+    $('#trumbowyg-demo0').trumbowyg(
+    {
+        btns: [
+        'btnGrp-lists',
+        '|', 'btnGrp-design',
+        '|', 'link',
+        '|', 'viewHTML',
+        ]
     });
+});
 
-    $(function() {
-        $('.date-picker').datepicker( {
-            changeMonth: true,
-            changeYear: true,
-            showButtonPanel: true,
-            dateFormat: 'MM yy',
-            onClose: function(dateText, inst) { 
-                var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-                var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-                $(this).datepicker('setDate', new Date(year, month, 1));
-            }
-        });
+$(function() {
+    $('.date-picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'MM yy',
+        onClose: function(dateText, inst) { 
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        }
     });
-    </script>
+});
+</script>

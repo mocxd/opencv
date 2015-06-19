@@ -1,6 +1,14 @@
-<button type="button" class="well row btn-bare btn-row" data-toggle="collapse" data-target="#panel1ro">
-	Work Experience
-</button>
+<div class="well row btn-bare btn-row">
+	<div class="header" data-toggle="collapse" data-target="#panel1ro">
+		Work Experience
+	</div>
+	<div class="right">
+		<button ng-click="toggleState()">
+			<span ng-show="edit1">Save</span>
+			<span ng-show="!edit1">Edit</span>
+		</button>
+	</div>
+</div>
 
 <div id="panel1ro" class="panel panel-default">
 	<div class="panel-body panel-bare">
