@@ -1,22 +1,86 @@
-        <div class="well row btn-bare btn-row">
-            <div class="header">
-                {{section.panelTitle}}
-            </div>
-            <div class="right">
-                <button class="btn btn-success" ng-click="toggleStateSingle()">
-                    <span>Save</span>
-                </button>
+<div ng-if="section.type === 'single'">
+
+    <div class="well row btn-bare btn-row">
+        <div class="header">
+            {{section.panelTitle}}
+        </div>
+        <div class="right">
+            <button class="btn btn-success" ng-click="toggleStateSingle()">
+                <span>Save</span>
+            </button>
+        </div>
+        <div class="right-1">
+            <button class="btn btn-success" ng-click="remove()">
+                <span>Delete</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="" class="panel panel-default in">
+
+
+        <div class="input-group input-group-textpanel">
+            <div class="panel-body panel-bare">
+                <textarea class="form-control" rows="5"  placeholder="Type here..." ></textarea>
             </div>
         </div>
 
-        <div id="panel0" class="panel panel-default in">
 
+    </div>
 
-            <div class="input-group input-group-textpanel">
-                <div class="panel-body panel-bare">
-                    <textarea class="form-control" rows="5"  placeholder="Type your work experience here..." ng-model="panelText0"></textarea>
+</div>
+
+<div ng-if="section.type === 'multi'">
+
+    <div class="well row btn-bare btn-row">
+        <div class="header">
+            {{section.panelTitle}}
+        </div>
+        <div class="right">
+            <button class="btn btn-success" ng-click="toggleState()">
+                <span>Save</span>
+            </button>
+        </div>
+        <div class="right-1">
+            <button class="btn btn-success" ng-click="remove()">
+                <span>Delete</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="" class="collapse panel panel-default in">
+        <div class="panel-body panel-bare">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <input id="" type="text" class="form-control" placeholder="Enter employer here...">
+                </div>
+                <div class="col-md-4">
+                    <input id="" type="text" class="form-control" placeholder="Enter position here...">
+                </div>
+                <div class="col-md-2">
+                    <input id="" type="text" class="form-control date-picker" placeholder="mm/yyyy">
+                </div>
+                <div class="col-md-2">
+                    <input id="" type="text" class="form-control date-picker" placeholder="mm/yyyy">
                 </div>
             </div>
 
+            <div class="row">
 
+                <textarea class="form-control" rows="5" id="" placeholder="Type your work experience here..." ></textarea>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                    <button role="button" class="btn btn-primary btn-lg"><i class="fa fa-plus-circle"></i></button>
+                </div>
+                <div class="col-md-11">
+                    <p>Add another employer...</p>
+                </div>
+            </div>
         </div>
+    </div>
+
+</div>
