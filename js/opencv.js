@@ -22,15 +22,50 @@
         this.remove = function (id) {
             //remove a section
 
-            //find items in array by object's id
-            var indices = $.map( cv, function( elem, index ) {
+            //find item in array by object's id
+            //using 0th index since id should be unique
+            var index = $.map( cv, function( elem, index ) {
                 if (elem.id === id) {
                     return index;
                 }
-            });
+            })[0];
 
-            //using 0th index since id should be unique
-            cv.splice(indices[0], 1);
+            //remove the item
+            cv.splice(index, 1);
+        };
+
+        this.move = function (id, delta) {
+            //find the index of the item by its id
+            var index = $.map( cv, function( elem, index ) {
+                if (elem.id === id) {
+                    return index;
+                }
+            })[0];
+
+            try {
+                if (index+delta < 0) {
+                    delta = 0;
+                } //else if (index+delta > cv.length) {
+                    //delta = 1;
+                //}
+                // insert the item into the specifed position
+                console.log('trying move...');
+                console.log(id);
+                console.log(index);
+                console.log(delta);
+                console.log(index + delta);
+                var tmp = cv[index];
+                // remove the original item from the array
+                cv.splice(index, 1);
+                cv.splice(index + delta, 0, tmp);
+                //cv.splice(1, 0, "TESTY");
+
+                // remove the original item from the array
+                //cv.splice(index, 1);
+            }catch (e) {
+                console.log ('Could not move section position.');
+                console.log (e);
+            }
         };
 
         this.getCv = function () {
@@ -38,15 +73,15 @@
         };
     })
 
-    .service('IdService', function(){
-        var id = 0;
+.service('IdService', function(){
+    var id = 0;
 
-        this.new = function () {
-            return id++;
-        };
-    })
+    this.new = function () {
+        return id++;
+    };
+})
 
-    .controller('SectionController', ['$scope', '$sce', 'SectionService', function ($scope, $sce, SectionService) {
+.controller('SectionController', ['$scope', '$sce', 'SectionService', function ($scope, $sce, SectionService) {
         //$scope.edit1 = false;
         $scope.cv = SectionService.getCv();
         //console.log ($scope.cv);
@@ -69,14 +104,21 @@
             //$scope.edit0 = !$scope.edit0;
         };
 
-        $scope.remove = function() {
-            SectionService.remove($scope.sectionId);
+        $scope.remove = function(id) {
+            //console.log($scope.sectionId);
+            //console.log ('removed');
+            SectionService.remove(id);
+        };
+
+        $scope.changePos = function (id, delta) {
+            //console.log($scope.sectionId);
+            SectionService.move(id, delta);
         };
     }])
 
-    .controller('SectionPanelController', ['$scope', 'SectionService', 'IdService', function ($scope, SectionService, IdService){
-        $scope.newPanel = function () {
-            var panel = {};
+.controller('SectionPanelController', ['$scope', 'SectionService', 'IdService', function ($scope, SectionService, IdService){
+    $scope.newPanel = function () {
+        var panel = {};
             //scope variables from directive
             panel.panelTitle = $scope.panelTitle;
             panel.type = $scope.panelType;
@@ -86,15 +128,15 @@
         };
     }])
 
-    .directive('sectionPanelBtn', ['SectionService', function (SectionService) {
-        return {
-            restrict: 'E',
-            scope: {
-                //panelTitle: '='
-            },
-            controller: 'SectionPanelController as panelCtrl',
-            bindToController: true,
-            link: function(scope, elem, attrs, controller) {
+.directive('sectionPanelBtn', ['SectionService', function (SectionService) {
+    return {
+        restrict: 'E',
+        scope: {
+            panelTitle: '='
+        },
+        controller: 'SectionPanelController as panelCtrl',
+        bindToController: true,
+        link: function(scope, elem, attrs, controller) {
                 //Load parameters from view
                 scope.panelTitle = attrs.panelTitle;
                 scope.panelType = attrs.panelType;
@@ -106,13 +148,14 @@
         };
     }])
 
-    .directive('cvSection', ['SectionService', function(SectionService){
+.directive('cvSection', ['SectionService', function(SectionService){
     // Runs during compile
     return {
         // name: '',
         // priority: 1,
         // terminal: true,
-        //scope: {},
+        //scope: {
+        //},
         // controller: function($scope, $element, $attrs, $transclude) {},
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
@@ -125,43 +168,44 @@
         //bindToController: true,
         link: function(scope, elem, attrs, controller) {
             //scope.sectionId = attrs.sectionId;
+
         }
     };
 }])
 
-    .directive('wysiwyg', function() {
-        return {
-            restrict: 'E',
-            scope: false,
-            templateUrl: 'parts/wysiwyg.html',
-        };
-    })
+.directive('wysiwyg', function() {
+    return {
+        restrict: 'E',
+        scope: false,
+        templateUrl: 'parts/wysiwyg.html',
+    };
+})
 
-    .directive('wysiwygMulti', function() {
-        return {
-            restrict: 'E',
-            scope: false,
-            templateUrl: 'parts/wysiwyg-multi.html',
-        };
-    })
+.directive('wysiwygMulti', function() {
+    return {
+        restrict: 'E',
+        scope: false,
+        templateUrl: 'parts/wysiwyg-multi.html',
+    };
+})
 
-    .directive('wysiwygReadonly', function() {
-        return {
-            restrict: 'E',
-            scope: false,
-            templateUrl: 'parts/wysiwyg-readonly.html',
-        };
-    })
+.directive('wysiwygReadonly', function() {
+    return {
+        restrict: 'E',
+        scope: false,
+        templateUrl: 'parts/wysiwyg-readonly.html',
+    };
+})
 
-    .directive('wysiwygMultiReadonly', function() {
-        return {
-            restrict: 'E',
-            scope: false,
-            templateUrl: 'parts/wysiwyg-multi-readonly.html',
-        };
-    })
+.directive('wysiwygMultiReadonly', function() {
+    return {
+        restrict: 'E',
+        scope: false,
+        templateUrl: 'parts/wysiwyg-multi-readonly.html',
+    };
+})
 
-    ;
+;
 
 
 })();
