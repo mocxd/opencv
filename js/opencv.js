@@ -18,10 +18,16 @@
             //create new section
             cv.push(section);
         };
+
+        this.getCv = function () {
+            return cv;
+        };
     })
 
     .controller('SectionController', ['$scope', '$sce', 'SectionService', function ($scope, $sce, SectionService) {
         $scope.edit1 = false;
+        $scope.cv = SectionService.getCv();
+        console.log ($scope.cv);
 
         $scope.saveFields = function () {
             $scope.descriptionText0 = $sce.trustAsHtml($('#trumbowyg-demo0').val());
@@ -45,26 +51,33 @@
     .controller('SectionPanelController', ['$scope', 'SectionService', function ($scope, SectionService){
         $scope.newPanel = function () {
             var panel = {};
-                //scope variables from directive
-                panel.title = $scope.title;
-                console.log ('controller: ' + $scope.title);
-                //SectionService.createNew();
-            };
-        }])
+            //scope variables from directive
+            panel.panelTitle = $scope.panelTitle;
+            console.log ('controller: ' + $scope.panelTitle);
+            SectionService.createNew(panel);
+        };
+    }])
 
     .directive('sectionPanelBtn', ['SectionService', function (SectionService) {
         return {
             restrict: 'E',
-            link: function($scope, elem, attrs, controller) {
+            scope: {
+                //panelTitle: '='
+            },
+            controller: 'SectionPanelController as panelCtrl',
+            bindToController: true,
+            link: function(scope, elem, attrs, controller) {
                 //Load parameters from view
-                $scope.title = attrs.panelTitle;
-                console.log ('directive: ' + $scope.title);
-                //$scope.$apply();
-            }
+                scope.panelTitle = attrs.panelTitle;
+                console.log ('attrs: ' + attrs.panelTitle);
+                console.log ('directive: ' + scope.panelTitle);
+                //scope.$apply();
+            },
+            templateUrl: 'parts/panel-btn.html'
         };
     }])
 
-    .directive('section', ['SectionService', function(SectionService){
+    .directive('cvSection', ['SectionService', function(SectionService){
     // Runs during compile
     return {
         // name: '',
@@ -73,9 +86,9 @@
         // scope: {}, // {} = isolate, true = child, false/undefined = no change
         // controller: function($scope, $element, $attrs, $transclude) {},
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-         restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+        restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
         // template: '',
-        // templateUrl: '',
+        templateUrl: 'parts/section.html',
         // replace: true,
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
