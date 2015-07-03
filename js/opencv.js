@@ -117,36 +117,38 @@
     }])
 
 .controller('SectionPanelController', ['$scope', 'SectionService', 'IdService', function ($scope, SectionService, IdService){
-    $scope.newPanel = function () {
+    var ctrl = this;
+
+    this.newPanel = function () {
         var panel = {};
-            //scope variables from directive
-            panel.panelTitle = $scope.panelTitle;
-            panel.type = $scope.panelType;
-            panel.id = IdService.new();
-            //console.log ('controller: ' + $scope.panelTitle);
-            SectionService.createNew(panel);
-        };
-    }])
+        panel.panelTitle = ctrl.panelTitle;
+        panel.type = ctrl.panelType;
+
+        if (typeof ctrl.fields !== 'undefined') {
+            panel.fields = JSON.parse(ctrl.fields);
+        }
+        panel.id = IdService.new();
+
+        console.log(panel);
+        SectionService.createNew(panel);
+    };
+}])
 
 .directive('sectionPanelBtn', ['SectionService', function (SectionService) {
     return {
         restrict: 'E',
         scope: {
-            panelTitle: '='
+            panelTitle: '@',
+            panelType: '@',
+            fields: '@'
         },
         controller: 'SectionPanelController as panelCtrl',
         bindToController: true,
-        link: function(scope, elem, attrs, controller) {
-                //Load parameters from view
-                scope.panelTitle = attrs.panelTitle;
-                scope.panelType = attrs.panelType;
-                console.log ('attrs: ' + attrs.panelTitle);
-                console.log ('directive: ' + scope.panelTitle);
-                //scope.$apply();
-            },
-            templateUrl: 'parts/panel-btn.html'
-        };
-    }])
+        // link: function(scope, elem, attrs, controller) {
+        //   },
+        templateUrl: 'parts/panel-btn.html'
+    };
+}])
 
 .directive('cvSection', ['SectionService', function(SectionService){
     // Runs during compile

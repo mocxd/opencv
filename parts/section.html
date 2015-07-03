@@ -31,7 +31,7 @@
 
         <div class="input-group input-group-textpanel">
             <div class="panel-body panel-bare">
-                <textarea class="form-control" rows="5"  placeholder="Type here..." ></textarea>
+                <textarea class="form-control" rows="5"  placeholder="Type here..." ng-model="section.content"></textarea>
             </div>
         </div>
 
@@ -54,6 +54,16 @@
         <div class="right-1">
             <button class="btn btn-success" ng-click="remove()">
                 <span>Delete</span>
+            </button>
+        </div>
+        <div class="right-2">
+            <button class="btn btn-success" ng-click="changePos(section.id, -1)">
+                <span>Up</span>
+            </button>
+        </div>
+        <div class="right-3">
+            <button class="btn btn-success" ng-click="changePos(section.id, 1)">
+                <span>Down</span>
             </button>
         </div>
     </div>
